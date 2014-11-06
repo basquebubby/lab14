@@ -39,15 +39,15 @@ class MyApp:
 		# This creates the drawpad - no need to change this 
 		drawpad.pack()
 		
-
-		
 	def button1Click(self, event):   
                 # "global" makes sure that we can access our oval and our drawpad
-		global oval
+		global player
 		global drawpad
-                x1,y1,x2,y2 = drawpad.coords(player)
+                px1,py1,px2,py2 = drawpad.coords(player)
 		global targetx1, targety1, targetx2, targety2
-
+                drawpad.move(player,0,-10)
+                if (px1 >= targetx1 and px2 <= targetx2) and (py1 >= targety1 and py2 <= targety2):
+                    drawpad.itemconfig(target, fill='green')
 
 		# Ensure that we are doing our collision detection
 		# After we move our object!
